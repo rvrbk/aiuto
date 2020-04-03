@@ -1,0 +1,120 @@
+@import url(https://js.api.here.com/v3/3.1/mapsjs-ui.css);@import url(https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap);@import url(https://fonts.googleapis.com/icon?family=Material+Icons);html,
+body,
+#vue-app {
+  font-family: "Hepta Slab", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html a,
+body a,
+#vue-app a {
+  color: #000;
+}
+
+html a:hover,
+body a:hover,
+#vue-app a:hover {
+  text-decoration: none;
+}
+
+html form input[type=text],
+html form input[type=email],
+html form textarea,
+body form input[type=text],
+body form input[type=email],
+body form textarea,
+#vue-app form input[type=text],
+#vue-app form input[type=email],
+#vue-app form textarea {
+  padding: 10px;
+  border-radius: 3px;
+  margin-top: 4px;
+  margin-left: -11px;
+  border: 1px solid #ccc;
+  font-family: "Hepta Slab", sans-serif;
+  font-size: 1em;
+  width: 300px;
+}
+
+html form textarea,
+body form textarea,
+#vue-app form textarea {
+  height: 150px;
+}
+
+html form input[type=submit],
+body form input[type=submit],
+#vue-app form input[type=submit] {
+  display: block;
+  width: 120px;
+  border: none;
+  border-radius: 3px;
+  line-height: 2.2em;
+  text-align: center;
+  background-color: #ebebeb;
+  font-family: "Hepta Slab", sans-serif;
+}
+
+html .view,
+body .view,
+#vue-app .view {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+html .view .flash,
+body .view .flash,
+#vue-app .view .flash {
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  width: 300px;
+  padding: 15px;
+  top: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 4px solid #ffd91d;
+  box-shadow: 0 0 10px -2px #000;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+html .view .help,
+body .view .help,
+#vue-app .view .help {
+  display: block;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  bottom: 50px;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px #ffd91d solid;
+  box-shadow: 0 0 10px -2px #000;
+  text-decoration: none;
+  color: #000;
+}
+
+html .view #here,
+body .view #here,
+#vue-app .view #here {
+  width: 100%;
+  height: 100%;
+}
+
+html .view.center,
+body .view.center,
+#vue-app .view.center {
+  align-items: center;
+}
+
