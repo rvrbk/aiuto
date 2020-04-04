@@ -1,10 +1,11 @@
 <template>
     <div class="view here">
-        <div v-if="flashes.activate_help || flashes.offer_send" class="flash">
+        <div v-if="flashes.activate_help || flashes.offer_send || flashes.use_location_service" class="flash">
             <span v-if="flashes.activate_help">Your call has been submitted. Check your inbox to activate.</span>
             <span v-if="flashes.offer_send">Thanks for offering your help! Check your inbox.</span>
+            <span v-if="flashes.use_location_service">In order to use this service we must know your location. Please allow the 'Location' service to provide us with your location.</span>
         </div>
-        <router-link to="/help" class="help"><span class="material-icons">record_voice_over</span></router-link>
+        <router-link v-if="location" to="/help" class="help"><span class="material-icons">record_voice_over</span></router-link>
         <div id="here"></div>
     </div>
 </template>
@@ -16,9 +17,11 @@
                 map: null,
                 coords: null,
                 markers: [],
+                location: false,
                 flashes: {
                     activate_help: false,
-                    offer_send: false
+                    offer_send: false,
+                    use_location_service: true,
                 }
             }
         },
@@ -33,10 +36,10 @@
                 let defaultLayers = platform.createDefaultLayers();
             
                 scope.map = new H.Map(document.getElementById('here'), defaultLayers.vector.normal.map, {
-                    zoom: 10,
+                    zoom: 3,
                     center: { 
-                        lat: 52.5, 
-                        lng: 13.4 
+                        lat: 45.69601, 
+                        lng: 9.66721 
                     }
                 });
 
@@ -134,6 +137,9 @@
 
             navigator.geolocation.getCurrentPosition((location) => {
                 scope.coords = location.coords;
+
+                scope.location = true;
+                scope.flashes.use_location_service = false;
 
                 scope.map.setCenter({
                     lat: scope.coords.latitude, 

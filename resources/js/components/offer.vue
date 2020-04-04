@@ -1,6 +1,7 @@
 <template>
     <div class="view center">
-        <form @submit="save">
+        <span v-if="!location">Please provide your location by allowing the 'Location' service.</span>
+        <form v-if="location" @submit="save">
             <p><label><div>Your name</div><input type="text" required v-model="name" placeholder="Your name..."></label></p>
             <p><label><div>Your e-mail</div><input type="email" required v-model="email" placeholder="Your e-mail..."></label></p>
             <p><label><div>I offer...</div><textarea required v-model="offer" placeholder="I offer..."></textarea></label></p>
@@ -16,7 +17,8 @@
                 name: '',
                 email: '',
                 offer: '',
-                coords: null
+                coords: null,
+                location: false
             }
         },
         methods: {
@@ -46,6 +48,8 @@
 
             navigator.geolocation.getCurrentPosition((location) => {
                 scope.coords = location.coords;
+
+                scope.location = true;
             });
         }
     }

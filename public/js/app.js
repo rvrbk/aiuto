@@ -1945,6 +1945,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1952,7 +1953,8 @@ __webpack_require__.r(__webpack_exports__);
       email: '',
       title: '',
       help: '',
-      coords: null
+      coords: null,
+      location: false
     };
   },
   methods: {
@@ -1982,6 +1984,7 @@ __webpack_require__.r(__webpack_exports__);
     var scope = this;
     navigator.geolocation.getCurrentPosition(function (location) {
       scope.coords = location.coords;
+      scope.location = true;
     });
   }
 });
@@ -2008,15 +2011,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       map: null,
       coords: null,
       markers: [],
+      location: false,
       flashes: {
         activate_help: false,
-        offer_send: false
+        offer_send: false,
+        use_location_service: true
       }
     };
   },
@@ -2028,10 +2034,10 @@ __webpack_require__.r(__webpack_exports__);
       });
       var defaultLayers = platform.createDefaultLayers();
       scope.map = new H.Map(document.getElementById('here'), defaultLayers.vector.normal.map, {
-        zoom: 10,
+        zoom: 3,
         center: {
-          lat: 52.5,
-          lng: 13.4
+          lat: 45.69601,
+          lng: 9.66721
         }
       });
       var mapEvents = new H.mapevents.MapEvents(scope.map);
@@ -2107,6 +2113,8 @@ __webpack_require__.r(__webpack_exports__);
 
     navigator.geolocation.getCurrentPosition(function (location) {
       scope.coords = location.coords;
+      scope.location = true;
+      scope.flashes.use_location_service = false;
       scope.map.setCenter({
         lat: scope.coords.latitude,
         lng: scope.coords.longitude
@@ -2142,13 +2150,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       name: '',
       email: '',
       offer: '',
-      coords: null
+      coords: null,
+      location: false
     };
   },
   methods: {
@@ -2177,6 +2187,7 @@ __webpack_require__.r(__webpack_exports__);
     var scope = this;
     navigator.geolocation.getCurrentPosition(function (location) {
       scope.coords = location.coords;
+      scope.location = true;
     });
   }
 });
@@ -19807,121 +19818,135 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "view center" }, [
-    _c("form", { on: { submit: _vm.save } }, [
-      _c("p", [
-        _c("label", [
-          _c("div", [_vm._v("Your name")]),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.name,
-                expression: "name"
-              }
-            ],
-            attrs: { type: "text", required: "", placeholder: "Your name..." },
-            domProps: { value: _vm.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.name = $event.target.value
-              }
-            }
-          })
+    !_vm.location
+      ? _c("span", [
+          _vm._v(
+            "Please provide your location by allowing the 'Location' service."
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _c("label", [
-          _c("div", [_vm._v("Your e-mail")]),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.email,
-                expression: "email"
-              }
-            ],
-            attrs: {
-              type: "email",
-              required: "",
-              placeholder: "Your e-mail..."
-            },
-            domProps: { value: _vm.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.location
+      ? _c("form", { on: { submit: _vm.save } }, [
+          _c("p", [
+            _c("label", [
+              _c("div", [_vm._v("Your name")]),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name,
+                    expression: "name"
+                  }
+                ],
+                attrs: {
+                  type: "text",
+                  required: "",
+                  placeholder: "Your name..."
+                },
+                domProps: { value: _vm.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.name = $event.target.value
+                  }
                 }
-                _vm.email = $event.target.value
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _c("label", [
-          _c("div", [_vm._v("Summarize your call...")]),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.title,
-                expression: "title"
-              }
-            ],
-            attrs: {
-              type: "text",
-              required: "",
-              placeholder: "Summarize your call..."
-            },
-            domProps: { value: _vm.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", [
+              _c("div", [_vm._v("Your e-mail")]),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.email,
+                    expression: "email"
+                  }
+                ],
+                attrs: {
+                  type: "email",
+                  required: "",
+                  placeholder: "Your e-mail..."
+                },
+                domProps: { value: _vm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.email = $event.target.value
+                  }
                 }
-                _vm.title = $event.target.value
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _c("label", [
-          _c("div", [_vm._v("I need help doing...")]),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.help,
-                expression: "help"
-              }
-            ],
-            attrs: { required: "", placeholder: "I need help doing..." },
-            domProps: { value: _vm.help },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", [
+              _c("div", [_vm._v("Summarize your call...")]),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.title,
+                    expression: "title"
+                  }
+                ],
+                attrs: {
+                  type: "text",
+                  required: "",
+                  placeholder: "Summarize your call..."
+                },
+                domProps: { value: _vm.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.title = $event.target.value
+                  }
                 }
-                _vm.help = $event.target.value
-              }
-            }
-          })
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", [
+              _c("div", [_vm._v("I need help doing...")]),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.help,
+                    expression: "help"
+                  }
+                ],
+                attrs: { required: "", placeholder: "I need help doing..." },
+                domProps: { value: _vm.help },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.help = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
         ])
-      ]),
-      _vm._v(" "),
-      _vm._m(0)
-    ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -19957,7 +19982,9 @@ var render = function() {
     "div",
     { staticClass: "view here" },
     [
-      _vm.flashes.activate_help || _vm.flashes.offer_send
+      _vm.flashes.activate_help ||
+      _vm.flashes.offer_send ||
+      _vm.flashes.use_location_service
         ? _c("div", { staticClass: "flash" }, [
             _vm.flashes.activate_help
               ? _c("span", [
@@ -19971,15 +19998,25 @@ var render = function() {
               ? _c("span", [
                   _vm._v("Thanks for offering your help! Check your inbox.")
                 ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.flashes.use_location_service
+              ? _c("span", [
+                  _vm._v(
+                    "In order to use this service we must know your location. Please allow the 'Location' service to provide us with your location."
+                  )
+                ])
               : _vm._e()
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c("router-link", { staticClass: "help", attrs: { to: "/help" } }, [
-        _c("span", { staticClass: "material-icons" }, [
-          _vm._v("record_voice_over")
-        ])
-      ]),
+      _vm.location
+        ? _c("router-link", { staticClass: "help", attrs: { to: "/help" } }, [
+            _c("span", { staticClass: "material-icons" }, [
+              _vm._v("record_voice_over")
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { attrs: { id: "here" } })
     ],
@@ -20009,91 +20046,105 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "view center" }, [
-    _c("form", { on: { submit: _vm.save } }, [
-      _c("p", [
-        _c("label", [
-          _c("div", [_vm._v("Your name")]),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.name,
-                expression: "name"
-              }
-            ],
-            attrs: { type: "text", required: "", placeholder: "Your name..." },
-            domProps: { value: _vm.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.name = $event.target.value
-              }
-            }
-          })
+    !_vm.location
+      ? _c("span", [
+          _vm._v(
+            "Please provide your location by allowing the 'Location' service."
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _c("label", [
-          _c("div", [_vm._v("Your e-mail")]),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.email,
-                expression: "email"
-              }
-            ],
-            attrs: {
-              type: "email",
-              required: "",
-              placeholder: "Your e-mail..."
-            },
-            domProps: { value: _vm.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.location
+      ? _c("form", { on: { submit: _vm.save } }, [
+          _c("p", [
+            _c("label", [
+              _c("div", [_vm._v("Your name")]),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name,
+                    expression: "name"
+                  }
+                ],
+                attrs: {
+                  type: "text",
+                  required: "",
+                  placeholder: "Your name..."
+                },
+                domProps: { value: _vm.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.name = $event.target.value
+                  }
                 }
-                _vm.email = $event.target.value
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _c("label", [
-          _c("div", [_vm._v("I offer...")]),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.offer,
-                expression: "offer"
-              }
-            ],
-            attrs: { required: "", placeholder: "I offer..." },
-            domProps: { value: _vm.offer },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", [
+              _c("div", [_vm._v("Your e-mail")]),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.email,
+                    expression: "email"
+                  }
+                ],
+                attrs: {
+                  type: "email",
+                  required: "",
+                  placeholder: "Your e-mail..."
+                },
+                domProps: { value: _vm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.email = $event.target.value
+                  }
                 }
-                _vm.offer = $event.target.value
-              }
-            }
-          })
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", [
+              _c("div", [_vm._v("I offer...")]),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.offer,
+                    expression: "offer"
+                  }
+                ],
+                attrs: { required: "", placeholder: "I offer..." },
+                domProps: { value: _vm.offer },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.offer = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
         ])
-      ]),
-      _vm._v(" "),
-      _vm._m(0)
-    ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
