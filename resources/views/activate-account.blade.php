@@ -6,4 +6,4 @@ Because it's your first time using this service we ask you to activate your acco
 <br><br>
 With kind regards,
 <br><br>
-The Aiuto team.
+The Cabhair team.

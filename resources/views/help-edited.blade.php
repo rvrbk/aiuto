@@ -18,7 +18,7 @@
     </head>
     <body>
         <div class="view center">
-            Glad to hear it worked out! Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.
+            Your call has been edited. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.
         </div>
 
         <script src="./js/app.js"></script>

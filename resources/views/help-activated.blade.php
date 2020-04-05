@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Aiuto</title>
+        <title>Cabhair</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf8">
         <link rel="shortcut icon" href="{{ env('APP_URL') }}/favicon.png">
@@ -19,9 +19,9 @@
     <body>
         <div class="view center">
         @if($help) 
-            Your call '{{ $help->title }}' has been activated. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Aiuto.
+            Your call '{{ $help->title }}' has been activated. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.
         @else
-            Hi, the call could not be found. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Aiuto.
+            Hi, the call could not be found. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.
         @endif
         </div>
 

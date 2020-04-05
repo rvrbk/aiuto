@@ -7,22 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ActivateAccount extends Mailable
+class ManageAccount extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $user;
-    private $token;
+    private $help;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user, $token)
+    public function __construct($help)
     {
-        $this->user = $user;
-        $this->token = $token;
+        $this->help = $help;
     }
 
     /**
@@ -32,8 +30,7 @@ class ActivateAccount extends Mailable
      */
     public function build()
     {
-        return $this->subject('Your account')->view('activate-account')
-            ->with('user', $this->user)
-            ->with('token', $this->token);
+        return $this->subject('Manage your call ' . $this->help->title)->view('manage-account')
+            ->with('help', $this->help);
     }
 }

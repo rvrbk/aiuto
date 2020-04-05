@@ -34,7 +34,7 @@ class OfferToOfferer extends Mailable
      */
     public function build()
     {
-        return $this->view('offer-to-offerer')
+        return $this->subject('Thank you for lending ' . $this->help->name . ' a hand!')->view('offer-to-offerer')
             ->with('help', $this->help)
             ->with('offer', $this->offer)
             ->with('offerer', $this->offerer);

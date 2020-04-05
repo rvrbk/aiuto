@@ -36,7 +36,7 @@ class OfferToCaller extends Mailable
      */
     public function build()
     {
-        return $this->view('offer-to-caller')
+        return $this->subject($this->offerer->name . ' is offering to help you!')->view('offer-to-caller')
             ->with('help', $this->help)
             ->with('offer', $this->offer)
             ->with('offerer', $this->offerer)

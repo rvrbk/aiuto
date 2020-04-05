@@ -32,7 +32,7 @@ class ActivateHelp extends Mailable
      */
     public function build()
     {
-        return $this->view('activate-help')
+        return $this->subject('Activate your call')->view('activate-help')
             ->with('user', $this->user)
             ->with('token', $this->token);
     }

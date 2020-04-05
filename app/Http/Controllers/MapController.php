@@ -11,6 +11,7 @@ class MapController extends Controller
     public function getMarks(Request $request)
     {
         return Help::where('help.active', true)
+            ->where('help.closed', false)
             ->join('user', 'user.id', '=', 'help.user_id')
             ->having('distance', '<', (50 * $request->zoom))
             ->select([

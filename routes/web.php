@@ -19,4 +19,7 @@ Route::get('/', function () {
 
 Route::get('activateaccount/{token}', 'AccountController@activate');
 Route::get('activatehelp/{token}', 'HelpController@activate');
+Route::get('edithelp/{token}', 'HelpController@edit');
+Route::post('edithelp/{token}', 'HelpController@alter');
+Route::get('deletehelp/{token}', 'HelpController@delete');
 Route::get('match/{token}', 'OfferController@match');

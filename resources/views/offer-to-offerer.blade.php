@@ -9,4 +9,4 @@ You can reach {{ $help->name }} at <a href="mailto:{{ $help->email }}">{{ $help-
 <br><br>
 With kind regards,
 <br><br>
-The Aiuto team.
+The Cabhair team.

@@ -23,6 +23,13 @@ class OfferController extends Controller
             $oh->matched = true;
 
             $oh->save();
+
+            $h = Help::where('id', $oh->help_id)
+                ->first();
+
+            $h->closed = true;
+
+            $h->save();
         }
 
         return view('matched')
@@ -45,17 +52,17 @@ class OfferController extends Controller
                     ->first();
 
             if(!$u) {
-                $token = base64_encode($request->email . date('c'));
+                $token = base64_encode('offer' . $request->email . date('c'));
 
                 $u = new User();
 
                 $u->email = $request->email;
                 $u->token = $token;
+                $u->name = $request->name;
 
                 Mail::to($u->email)->send(new ActivateAccount($u, $token));
             }
 
-            $u->name = $request->name;
             $u->latitude = $request->latitude;
             $u->longitude = $request->longitude;
 
@@ -68,7 +75,7 @@ class OfferController extends Controller
             
             $o->save();
 
-            $token = base64_encode($request->email . date('c'));
+            $token = base64_encode('offer' . $request->email . date('c'));
 
             $oh = new Offeredhelp();
 
