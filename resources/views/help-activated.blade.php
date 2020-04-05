@@ -19,9 +19,9 @@
     <body>
         <div class="view center">
         @if($help) 
-            Your call '{{ $help->title }}' has been activated. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.
+            <span>Your call '{{ $help->title }}' has been activated. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.</span>
         @else
-            Hi, the call could not be found. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.
+            <span>Hi, the call could not be found. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.</span>
         @endif
         </div>
 

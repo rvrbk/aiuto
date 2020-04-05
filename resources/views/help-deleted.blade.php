@@ -18,7 +18,7 @@
     </head>
     <body>
         <div class="view center">
-            Your call has been deleted. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.
+            <span>Your call has been deleted. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.</span>
         </div>
 
         <script src="./js/app.js"></script>
