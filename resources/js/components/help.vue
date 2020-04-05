@@ -1,7 +1,7 @@
 <template>
     <div class="view center">
         <span v-if="!location">Please provide your location by allowing the 'Location' service.</span>
-        <form v-if="location" @submit="save">
+        <form v-if="location" @submit.prevent="save">
             <p><label><div>Your name</div><input type="text" required v-model="name" placeholder="Your name..."></label></p>
             <p><label><div>Your e-mail</div><input type="email" required v-model="email" placeholder="Your e-mail..."></label></p>
             <p><label><div>Summarize your call...</div><input type="text" required v-model="title" placeholder="Summarize your call..."></label></p>

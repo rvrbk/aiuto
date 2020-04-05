@@ -29,6 +29,7 @@ body form textarea,
 #vue-app form input[type=text],
 #vue-app form input[type=email],
 #vue-app form textarea {
+  -webkit-appearance: none;
   padding: 10px;
   border-radius: 3px;
   margin-top: 4px;
@@ -48,6 +49,7 @@ body form textarea,
 html form input[type=submit],
 body form input[type=submit],
 #vue-app form input[type=submit] {
+  -webkit-appearance: none;
   display: block;
   width: 120px;
   border: none;

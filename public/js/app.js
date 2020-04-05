@@ -19827,125 +19827,136 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.location
-      ? _c("form", { on: { submit: _vm.save } }, [
-          _c("p", [
-            _c("label", [
-              _c("div", [_vm._v("Your name")]),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.name,
-                    expression: "name"
-                  }
-                ],
-                attrs: {
-                  type: "text",
-                  required: "",
-                  placeholder: "Your name..."
-                },
-                domProps: { value: _vm.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+      ? _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.save($event)
+              }
+            }
+          },
+          [
+            _c("p", [
+              _c("label", [
+                _c("div", [_vm._v("Your name")]),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.name,
+                      expression: "name"
                     }
-                    _vm.name = $event.target.value
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _c("label", [
-              _c("div", [_vm._v("Your e-mail")]),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.email,
-                    expression: "email"
-                  }
-                ],
-                attrs: {
-                  type: "email",
-                  required: "",
-                  placeholder: "Your e-mail..."
-                },
-                domProps: { value: _vm.email },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  ],
+                  attrs: {
+                    type: "text",
+                    required: "",
+                    placeholder: "Your name..."
+                  },
+                  domProps: { value: _vm.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.name = $event.target.value
                     }
-                    _vm.email = $event.target.value
                   }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _c("label", [
-              _c("div", [_vm._v("Summarize your call...")]),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.title,
-                    expression: "title"
-                  }
-                ],
-                attrs: {
-                  type: "text",
-                  required: "",
-                  placeholder: "Summarize your call..."
-                },
-                domProps: { value: _vm.title },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c("label", [
+                _c("div", [_vm._v("Your e-mail")]),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
                     }
-                    _vm.title = $event.target.value
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _c("label", [
-              _c("div", [_vm._v("I need help doing...")]),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.help,
-                    expression: "help"
-                  }
-                ],
-                attrs: { required: "", placeholder: "I need help doing..." },
-                domProps: { value: _vm.help },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  ],
+                  attrs: {
+                    type: "email",
+                    required: "",
+                    placeholder: "Your e-mail..."
+                  },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
                     }
-                    _vm.help = $event.target.value
                   }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(0)
-        ])
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c("label", [
+                _c("div", [_vm._v("Summarize your call...")]),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.title,
+                      expression: "title"
+                    }
+                  ],
+                  attrs: {
+                    type: "text",
+                    required: "",
+                    placeholder: "Summarize your call..."
+                  },
+                  domProps: { value: _vm.title },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.title = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c("label", [
+                _c("div", [_vm._v("I need help doing...")]),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.help,
+                      expression: "help"
+                    }
+                  ],
+                  attrs: { required: "", placeholder: "I need help doing..." },
+                  domProps: { value: _vm.help },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.help = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        )
       : _vm._e()
   ])
 }
@@ -20055,95 +20066,106 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.location
-      ? _c("form", { on: { submit: _vm.save } }, [
-          _c("p", [
-            _c("label", [
-              _c("div", [_vm._v("Your name")]),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.name,
-                    expression: "name"
-                  }
-                ],
-                attrs: {
-                  type: "text",
-                  required: "",
-                  placeholder: "Your name..."
-                },
-                domProps: { value: _vm.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+      ? _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.save($event)
+              }
+            }
+          },
+          [
+            _c("p", [
+              _c("label", [
+                _c("div", [_vm._v("Your name")]),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.name,
+                      expression: "name"
                     }
-                    _vm.name = $event.target.value
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _c("label", [
-              _c("div", [_vm._v("Your e-mail")]),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.email,
-                    expression: "email"
-                  }
-                ],
-                attrs: {
-                  type: "email",
-                  required: "",
-                  placeholder: "Your e-mail..."
-                },
-                domProps: { value: _vm.email },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  ],
+                  attrs: {
+                    type: "text",
+                    required: "",
+                    placeholder: "Your name..."
+                  },
+                  domProps: { value: _vm.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.name = $event.target.value
                     }
-                    _vm.email = $event.target.value
                   }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _c("label", [
-              _c("div", [_vm._v("I offer...")]),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.offer,
-                    expression: "offer"
-                  }
-                ],
-                attrs: { required: "", placeholder: "I offer..." },
-                domProps: { value: _vm.offer },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c("label", [
+                _c("div", [_vm._v("Your e-mail")]),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
                     }
-                    _vm.offer = $event.target.value
+                  ],
+                  attrs: {
+                    type: "email",
+                    required: "",
+                    placeholder: "Your e-mail..."
+                  },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
                   }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(0)
-        ])
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c("label", [
+                _c("div", [_vm._v("I offer...")]),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.offer,
+                      expression: "offer"
+                    }
+                  ],
+                  attrs: { required: "", placeholder: "I offer..." },
+                  domProps: { value: _vm.offer },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.offer = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        )
       : _vm._e()
   ])
 }
