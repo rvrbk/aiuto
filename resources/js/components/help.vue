@@ -1,5 +1,6 @@
 <template>
     <div class="view center">
+        <router-link class="cancel" :to="{ name: 'map' }">x</router-link>
         <span v-if="!location">Please provide your location by allowing the 'Location' service.</span>
         <form v-if="location" @submit.prevent="save">
             <p><label><div>Your name</div><input type="text" required v-model="name" placeholder="Your name..."></label></p>

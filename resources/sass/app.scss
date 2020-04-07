@@ -15,7 +15,30 @@ html, body, #vue-app {
         &:hover {
             text-decoration: none;
         }
+
+        &.cancel {
+            display: block;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            top: 30px;
+            right: 30px;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 1px #ccc solid;
+            box-shadow: 0 0 10px -2px #ccc;
+            text-decoration: none;
+            color: #ccc;
+            font-weight: bolder;
+        }
     }
+
+    
 
     form {
 
