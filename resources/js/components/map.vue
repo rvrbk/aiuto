@@ -1,12 +1,18 @@
 <template>
     <div class="view here">
+        <div v-if="loading" class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div v-if="flashes.activate_help || flashes.offer_send || flashes.use_location_service" class="flash">
             <span v-if="flashes.activate_help">Your call has been submitted. Check your inbox to activate.</span>
             <span v-if="flashes.offer_send">Thanks for offering your help! Check your inbox.</span>
             <span v-if="flashes.use_location_service">In order to use this service we must know your location. Please allow the 'Location' service to provide us with your location.</span>
         </div>
         <router-link v-if="location" to="/help" class="help"><span class="material-icons">record_voice_over</span></router-link>
-        <div id="here"></div>
+        <div id="here" v-bind:class="{ loading: loading }"></div>
     </div>
 </template>
 
@@ -18,6 +24,7 @@
                 coords: null,
                 markers: [],
                 location: false,
+                loading: true,
                 flashes: {
                     activate_help: false,
                     offer_send: false,
@@ -150,6 +157,8 @@
 
                 window.setTimeout(() => {
                     scope.mark();
+
+                    scope.loading = false;
                 }, 1000);
             });
 
