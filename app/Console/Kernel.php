@@ -4,6 +4,11 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Help;
+use App\Mail\WeeklyReport;
+use Mail;
+use App\Offer;
+use App\Offeredhelp;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,7 +29,20 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function() {
+            $h = Help::where('active', true)
+                ->where('closed', false)
+                ->where('updated_at', '>=', date('Y-m-d', strtotime('-1 week')))
+                ->get();
+
+            $o = Offer::where('created_at', '>=', date('Y-m-d', strtotime('-1 week')))
+                ->get();
+
+            $m = Offeredhelp::where('created_at', '>=', date('Y-m-d', strtotime('-1 week')))
+                ->get();
+            
+            Mail::to('rvrbk.dev@gmail.com')->send(new WeeklyReport($h, $o, $m));
+        })->weekly();
     }
 
     /**
