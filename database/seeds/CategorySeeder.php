@@ -15,11 +15,11 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            ['name' => 'I need someone to do my groceries', 'code' => 'GROCERIES'],
+            ['name' => 'Someone to do my groceries', 'code' => 'GROCERIES'],
             ['name' => 'I want to have some social contact', 'code' => 'SOCIAL'],
-            ['name' => 'I need someone to provide some medical care', 'code' => 'MEDICAL'],
-            ['name' => 'I need help doing erands like walking the dog', 'code' => 'DOG'],
-            ['name' => 'I need some other kind of help', 'code' => 'OTHER']
+            ['name' => 'Assistance with medical care', 'code' => 'MEDICAL'],
+            ['name' => 'Doing erands like walking the dog', 'code' => 'DOG'],
+            ['name' => 'Some other kind of help', 'code' => 'OTHER']
         ];
 
         foreach($categories as $category) {
@@ -28,6 +28,14 @@ class CategorySeeder extends Seeder
 
                 $c->name = $category['name'];
                 $c->code = $category['code'];
+
+                $c->save();
+            }
+            else {
+                $c = Category::where('code', $category['code'])
+                    ->first();
+
+                $c->name = $category['name'];
 
                 $c->save();
             }
