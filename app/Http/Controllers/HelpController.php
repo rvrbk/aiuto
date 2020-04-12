@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Mail;
@@ -62,7 +63,8 @@ class HelpController extends Controller
 
         if($h) {
             return view('edit-help')
-                ->with('help', $h);
+                ->with('help', $h)
+                ->with('categories', Category::get());
         }
     }
 
@@ -73,6 +75,7 @@ class HelpController extends Controller
 
         if($h) {
             $h->title = $request->title;
+            $h->category = $request->category;
             $h->help = $request->help;
             $h->closed = false;
 
@@ -117,6 +120,7 @@ class HelpController extends Controller
         $h = new Help();
 
         $h->title = $request->title;
+        $h->category = $request->category;
         $h->help = $request->help;
         $h->token = $token;
         $h->user_id = $u->id;
@@ -126,5 +130,10 @@ class HelpController extends Controller
         Mail::to($u->email)->send(new ActivateHelp($u, $token));
 
         return ['success' => true];
+    }
+
+    public function getCategories(Request $request)
+    {
+        return Category::get();
     }
 }

@@ -79,7 +79,7 @@ html, body, #vue-app {
 
     form {
 
-        input[type=text], input[type=email], textarea {
+        input[type=text], input[type=email], textarea, select {
             -webkit-appearance: none;
             padding: 10px;
             border-radius: 3px;
@@ -89,6 +89,10 @@ html, body, #vue-app {
             font-family: 'Hepta Slab', sans-serif;
             font-size: 1em;
             width: 300px;
+        }
+
+        select {
+            width: 322px;
         }
 
         textarea {

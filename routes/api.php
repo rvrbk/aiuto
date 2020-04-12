@@ -18,3 +18,4 @@ Route::post('/help', 'HelpController@help');
 Route::post('/offer/{help_id}', 'OfferController@offer');
 
 Route::get('/marks/{latitude}/{longitude}/{zoom}/', 'MapController@getMarks');
+Route::get('/categories', 'HelpController@getCategories');

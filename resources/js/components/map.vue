@@ -29,6 +29,13 @@
                     activate_help: false,
                     offer_send: false,
                     use_location_service: true,
+                },
+                icons: {
+                    dog: location.origin + '/icon/dog.png',
+                    groceries: location.origin + '/icon/groceries.png',
+                    medical: location.origin + '/icon/medical.png',
+                    other: location.origin + '/icon/other.png',
+                    social: location.origin + '/icon/social.png'
                 }
             }
         },
@@ -108,9 +115,37 @@
                     scope.ui.addBubble(bubble);
                 }, false);
 
+                let icon = new H.map.Icon(scope.icons.other);
+
+                switch(item.category) {
+                    case 'GROCERIES':
+                    icon = new H.map.Icon(scope.icons.groceries);
+                        
+                    break;
+                    case 'SOCIAL':
+                    icon = new H.map.Icon(scope.icons.social);
+                        
+                    break;
+                    case 'MEDICAL':
+                    icon = new H.map.Icon(scope.icons.medical);
+                        
+                    break;
+                    case 'DOG':
+                    icon = new H.map.Icon(scope.icons.dog);
+                        
+                    break;
+                    case 'OTHER':
+                    default:
+                    icon = new H.map.Icon(scope.icons.other);
+                        
+                    break;
+                }
+
                 let marker = new H.map.Marker({
                     lat: item.latitude,
                     lng: item.longitude
+                }, {
+                    icon: icon
                 });
                 
                 marker.setData('<strong>' + item.title + '</strong><br>' + item.help + '<br><a href="#/offer/' + item.id + '">I want to help</a>');
@@ -122,7 +157,7 @@
         },
         mounted() {
             const scope = this;
-            
+
             switch(scope.$route.params.flash) {
                 case 'activate-help':
                     scope.flashes.activate_help = true;
