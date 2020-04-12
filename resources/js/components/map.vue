@@ -115,28 +115,58 @@
                     scope.ui.addBubble(bubble);
                 }, false);
 
-                let icon = new H.map.Icon(scope.icons.other);
+                let icon = new H.map.Icon(scope.icons.other, {
+                    size: {
+                        w: 46,
+                        h: 46
+                    }
+                });
 
                 switch(item.category) {
                     case 'GROCERIES':
-                    icon = new H.map.Icon(scope.icons.groceries);
+                    icon = new H.map.Icon(scope.icons.groceries, {
+                        size: {
+                            w: 46,
+                            h: 46
+                        }
+                    });
                         
                     break;
                     case 'SOCIAL':
-                    icon = new H.map.Icon(scope.icons.social);
+                    icon = new H.map.Icon(scope.icons.social, {
+                        size: {
+                            w: 46,
+                            h: 46
+                        }
+                    });
                         
                     break;
                     case 'MEDICAL':
-                    icon = new H.map.Icon(scope.icons.medical);
+                    icon = new H.map.Icon(scope.icons.medical, {
+                        size: {
+                            w: 46,
+                            h: 46
+                        }
+                    });
                         
                     break;
                     case 'DOG':
-                    icon = new H.map.Icon(scope.icons.dog);
+                    icon = new H.map.Icon(scope.icons.dog, {
+                        size: {
+                            w: 46,
+                            h: 46
+                        }
+                    });
                         
                     break;
                     case 'OTHER':
                     default:
-                    icon = new H.map.Icon(scope.icons.other);
+                    icon = new H.map.Icon(scope.icons.other, {
+                        size: {
+                            w: 46,
+                            h: 46
+                        }
+                    });
                         
                     break;
                 }
