@@ -168,5 +168,9 @@ html, body, #vue-app {
         &.center {
             align-items: center;
         }
+
+        &.center-text {
+            text-align: center;
+        }
     }
 }
