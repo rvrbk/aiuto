@@ -1,12 +1,12 @@
 <template>
     <div class="view center">
         <router-link class="cancel" :to="{ name: 'map' }">x</router-link>
-        <span v-if="!location">Please provide your location by allowing the 'Location' service.</span>
+        <span v-if="!location">{{ translations['provide-location'] }}</span>
         <form v-if="location" @submit.prevent="save">
-            <p><label><div>Your name</div><input type="text" required v-model="name" placeholder="Your name..."></label></p>
-            <p><label><div>Your e-mail</div><input type="email" required v-model="email" placeholder="Your e-mail..."></label></p>
-            <p><label><div>I offer...</div><textarea required v-model="offer" placeholder="I offer..."></textarea></label></p>
-            <p><input type="submit" value="save"></p>
+            <p><label><div>{{ translations.name }}</div><input type="text" required v-model="name" v-bind:placeholder="translations.name"></label></p>
+            <p><label><div>{{ translations.email }}</div><input type="email" required v-model="email" v-bind:placeholder="translations.email"></label></p>
+            <p><label><div>{{ translations.offer }}</div><textarea required v-model="offer" v-bind:placeholder="translations.offer"></textarea></label></p>
+            <p><input type="submit" v-bind:value="translations.save"></p>
         </form>
     </div>
 </template>
@@ -19,7 +19,8 @@
                 email: '',
                 offer: '',
                 coords: null,
-                location: false
+                location: false,
+                translations: []
             }
         },
         methods: {
@@ -46,6 +47,10 @@
         },
         mounted() {
             const scope = this;
+
+            fetch('locale.json').then(response => response.json()).then((response) => {
+                scope.translations = response;
+            });
 
             navigator.geolocation.getCurrentPosition((location) => {
                 scope.coords = location.coords;

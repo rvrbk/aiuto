@@ -1,10 +1,8 @@
-Hello {{ $help->name }},
-<br><br>
-You can manage your call '{{ $help->title }}' with the links below.
-<br><br>
-To edit your call click <a href="{{ env('APP_URL') }}/edithelp/{{ $help->token }}">here</a>.<br>
-To remove your call click <a href="{{ env('APP_URL') }}/deletehelp/{{ $help->token }}">here</a>.
-<br><br>
-With kind regards,
-<br><br>
-The Cabhair team.
+{!! __('email.manage-account-1', [
+    'name' => $help->name,
+    'title' => $help->title
+]) !!}
+<a href="{{ env('APP_URL') }}/edithelp/{{ $help->token }}">{{ env('APP_URL') }}/edithelp/{{ $help->token }}</a>.<br><br>
+{!! __('email.manage-account-2') !!}
+<a href="{{ env('APP_URL') }}/deletehelp/{{ $help->token }}">{{ env('APP_URL') }}/deletehelp/{{ $help->token }}</a>.
+{!! __('email.signing') !!}
