@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content') 
-        <div class="view center">
-            <span>Your call has been deleted. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.</span>
+        <div class="view center center-text">
+            <span>{{ __('app.help-deleted') }}. {!! __('app.click-here') !!}.</span>
         </div>
 @endsection

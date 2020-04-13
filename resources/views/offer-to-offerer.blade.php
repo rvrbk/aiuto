@@ -1,12 +1,8 @@
-Hello {{ $offerer->name }},
-<br><br>
-You offered to help {{ $help->name }} with {{ $help->title }}. This is greatly appreciated!
-<br><br>
-You can reach {{ $help->name }} at <a href="mailto:{{ $help->email }}">{{ $help->email }}</a>.
-<br><br>
-<strong>{{ $help->title }}</strong>
-<p>{{ $help->help }}</p> 
-<br><br>
-With kind regards,
-<br><br>
-The Cabhair team.
+{!! __('email.offer-to-offerer', [
+    'offerer-name' => $offerer->name,
+    'caller-name' => $help->name,
+    'caller-email' => $help->email,
+    'help-title' => $help->title,
+    'help' => $help->help
+]) !!}
+{!! __('email.signing') !!}

@@ -7,9 +7,9 @@
             <div></div>
         </div>
         <div v-if="flashes.activate_help || flashes.offer_send || flashes.use_location_service" class="flash">
-            <span v-if="flashes.activate_help">Your call has been submitted. Check your inbox to activate.</span>
-            <span v-if="flashes.offer_send">Thanks for offering your help! Check your inbox.</span>
-            <span v-if="flashes.use_location_service">In order to use this service we must know your location. Please allow the 'Location' service to provide us with your location.</span>
+            <span v-if="flashes.activate_help">{{ translations['activate-help'] }}</span>
+            <span v-if="flashes.offer_send">{{ translations['offer-send'] }}</span>
+            <span v-if="flashes.use_location_service">{{ translations['provide-location'] }}</span>
         </div>
         <router-link v-if="location" to="/help" class="help"><span class="material-icons">record_voice_over</span></router-link>
         <div id="here" v-bind:class="{ loading: loading }"></div>
@@ -25,6 +25,7 @@
                 markers: [],
                 location: false,
                 loading: true,
+                translations: [],
                 flashes: {
                     activate_help: false,
                     offer_send: false,
@@ -178,7 +179,7 @@
                     icon: icon
                 });
                 
-                marker.setData('<strong>' + item.title + '</strong><br>' + item.help + '<br><a href="#/offer/' + item.id + '">I want to help</a>');
+                marker.setData('<strong>' + item.title + '</strong><br>' + item.help + '<br><a href="#/offer/' + item.id + '">' + scope.translations['i-want-to-help'] + '</a>');
 
                 scope.markers[item.id] = item;
 
@@ -187,6 +188,10 @@
         },
         mounted() {
             const scope = this;
+
+            fetch('locale.json').then(response => response.json()).then((response) => {
+                scope.translations = response;
+            });
 
             switch(scope.$route.params.flash) {
                 case 'activate-help':

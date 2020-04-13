@@ -1,11 +1,11 @@
 @extends('app')
 
 @section('content')
-        <div class="view center">
+        <div class="view center center-text">
         @if($user) 
-            <span>Hello {{ $user->name }}, your account has been activated. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.</span>
+            <span>{{ __('app.account-activated-success', ['name' => $user->name]) }}. {!! __('app.click-here') !!}.</span>
         @else
-            <span>Hi, your account could not be found. Click&nbsp;<a href="{{ env('APP_URL') }}">here</a>&nbsp;to return to Cabhair.</span>
+            <span>{{ __('app.account-activated-false') }}. {!! __('app.click-here') !!}.</span>
         @endif
         </div>
-@endsection
+@endsection. 
