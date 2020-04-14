@@ -9,7 +9,7 @@ return [
     'help-deleted' => 'Je hulpvraag is verwijderd',
     'help-edited' => 'Je hulpvraag is bijgewerkt',
     'matched' => 'Mooi dat het is gelukt!',
-    'provide-location' => 'Zou je je locatie met ons willen delen? Dit kan door de \'location\' service toe te staan je locatie te achterhalen.',
+    'provide-location' => 'Zou je je locatie met ons willen delen? Dit kan door de \'location\' service toe te staan je locatie te gebruiken.',
     'activate-help' => 'Je hulpvraag is ontvangen. Check je inbox om hem te activeren.',
     'offer-send' => 'Bedankt voor je bijdrage! Check je inbox voor verdere details.',
     'i-want-to-help' => 'Ik wil helpen'
