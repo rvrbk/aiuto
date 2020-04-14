@@ -1,12 +1,12 @@
 <template>
     <div class="view center">
         <router-link class="cancel" :to="{ name: 'map' }">x</router-link>
-        <span v-if="!location">{{ translations['provide-location'] }}</span>
+        <span v-if="!location">{{ $parent.translations['provide-location'] }}</span>
         <form v-if="location" @submit.prevent="save">
-            <p><label><div>{{ translations.name }}</div><input type="text" required v-model="name" v-bind:placeholder="translations.name"></label></p>
-            <p><label><div>{{ translations.email }}</div><input type="email" required v-model="email" v-bind:placeholder="translations.email"></label></p>
-            <p><label><div>{{ translations.offer }}</div><textarea required v-model="offer" v-bind:placeholder="translations.offer"></textarea></label></p>
-            <p><input type="submit" v-bind:value="translations.save"></p>
+            <p><label><div>{{ $parent.translations.name }}</div><input type="text" required v-model="name" v-bind:placeholder="$parent.translations.name"></label></p>
+            <p><label><div>{{ $parent.translations.email }}</div><input type="email" required v-model="email" v-bind:placeholder="$parent.translations.email"></label></p>
+            <p><label><div>{{ $parent.translations.offer }}</div><textarea required v-model="offer" v-bind:placeholder="$parent.translations.offer"></textarea></label></p>
+            <p><input type="submit" v-bind:value="$parent.translations.save"></p>
         </form>
     </div>
 </template>
@@ -19,8 +19,7 @@
                 email: '',
                 offer: '',
                 coords: null,
-                location: false,
-                translations: []
+                location: false
             }
         },
         methods: {
