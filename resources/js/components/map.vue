@@ -10,7 +10,7 @@
             <li v-if="!overlay"><a class="icon icon-help" @click="info">?</a></li>
             <li v-if="overlay"><a class="icon icon-cancel" @click="info"><span class="material-icons">close</span></a></li>
             <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcabhair.com" target="_blank" class="icon icon-facebook">f</a></li>
-            <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcabhair.com" target="_blank" class="icon icon-linkedin">in</a></li>
+            <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcabhair.com" target="_blank" class="icon icon-linkedin">in</a></li>
         </ul>
         <div v-if="overlay" class="info">
             <div v-html="$parent.translations['info-text']"></div>
