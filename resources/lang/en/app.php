@@ -12,5 +12,12 @@ return [
     'provide-location' => 'Please provide your location by allowing the \'Location\' service.',
     'activate-help' => 'Your call has been submitted. Check your inbox to activate.',
     'offer-send' => 'Thanks for offering your help! Check your inbox.',
-    'i-want-to-help' => 'I want to help'
+    'i-want-to-help' => 'I want to help',
+    'info-text' => '<h1>Welcome to Cabhair.com</h1> 
+        Our goal is to link those in need to those that want to help out.<br><br> 
+        Imagine you\'re quarantined at home but you need some groceries but can\'t get them yourself. You can press the icon centered
+        at the bottom of the page and fill out a small form. After you\'ve activated your request it will show up as a so called marker on the
+        map. Other visitors can see your request too and respond to it. When they do you will be introduced to each other.<br><br>
+        The Cabhair Team',
+    'keyphrase' => 'Let\'s help eachother out!'
 ];

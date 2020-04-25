@@ -12,19 +12,19 @@
         mounted() {
             const scope = this;
 
-            switch(navigator.language) {
+            switch(navigator.language.toLowerCase()) {
                 case 'nl':
-                case 'nl-NL':
+                case 'nl-nl':
                 case 'be':
-                case 'be-NL':
+                case 'be-nl':
                     fetch('nl.locale.json').then(response => response.json()).then((response) => {
                         scope.translations = response;
                     });
 
                 break;
                 case 'en':
-                case 'en-EN':
-                case 'en-US':
+                case 'en-en':
+                case 'en-us':
                 default:
                     fetch('en.locale.json').then(response => response.json()).then((response) => {
                         scope.translations = response;

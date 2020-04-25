@@ -6,6 +6,15 @@
             <div></div>
             <div></div>
         </div>
+        <ul v-if="!loading" class="icons">
+            <li v-if="!overlay"><a class="icon icon-help" @click="info">?</a></li>
+            <li v-if="overlay"><a class="icon icon-cancel" @click="info"><span class="material-icons">close</span></a></li>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcabhair.com" target="_blank" class="icon icon-facebook">f</a></li>
+            <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcabhair.com" target="_blank" class="icon icon-linkedin">in</a></li>
+        </ul>
+        <div v-if="overlay" class="info">
+            <div v-html="$parent.translations['info-text']"></div>
+        </div>
         <div v-if="flashes.activate_help || flashes.offer_send || flashes.use_location_service" class="flash">
             <span v-if="flashes.activate_help">{{ $parent.translations['activate-help'] }}</span>
             <span v-if="flashes.offer_send">{{ $parent.translations['offer-send'] }}</span>
@@ -25,6 +34,7 @@
                 markers: [],
                 location: false,
                 loading: true,
+                overlay: false,
                 flashes: {
                     activate_help: false,
                     offer_send: false,
@@ -40,6 +50,16 @@
             }
         },
         methods: {
+            info() {
+                const scope = this;
+
+                if(scope.overlay) {
+                    scope.overlay = false;
+                }
+                else {
+                    scope.overlay = true;
+                }
+            },
             here() {
                 const scope = this;
                 

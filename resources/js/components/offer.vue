@@ -1,6 +1,8 @@
 <template>
     <div class="view center">
-        <router-link class="cancel" :to="{ name: 'map' }">x</router-link>
+        <ul class="icons">
+            <li><router-link class="icon icon-cancel-inverted" :to="{ name: 'map' }"><span class="material-icons">close</span></router-link></li>
+        </ul>
         <span v-if="!location">{{ $parent.translations['provide-location'] }}</span>
         <form v-if="location" @submit.prevent="save">
             <p><label><div>{{ $parent.translations.name }}</div><input type="text" required v-model="name" v-bind:placeholder="$parent.translations.name"></label></p>
