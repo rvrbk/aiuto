@@ -19,5 +19,6 @@ return [
         gecentreerd onder aan de pagina en vul je het formulier in. Na activering wordt jouw hulpvraag in de vorm van een zogenaamde marker op 
         de kaart getoond. Andere bezoekers kunnen dit ook zien en als ze ervoor kiezen je te helpen worden jullie met elkaar in contact gebracht.<br><br>
         Het Cabhair Team',
-    'keyphrase' => 'Help elkaar!'
+    'keyphrase' => 'Help elkaar!',
+    'og-description' => 'Hulp nodig? Laat een pinned request achter op onze interactieve kaart.'
 ];

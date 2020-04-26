@@ -11,6 +11,7 @@
         <meta name="keywords" content="corona, covid, covid-19, virus, help, crisis, neighbour, isolation, quarantine, relief, community, social, cabhair, help">
         <meta name="author" contwnt="Rik Verbeek">
         <meta property="og:title" content="Cabhair | {{ __('app.keyphrase') }}" />
+        <meta property="og:description" content="{{ __('app.og-description') }}" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cabhair.com/" />
         <meta property="og:image" content="{{ env('APP_URL') }}/art/banner.jpg" />

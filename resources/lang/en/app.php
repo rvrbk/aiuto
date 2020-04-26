@@ -19,5 +19,6 @@ return [
         at the bottom of the page and fill out a small form. After you\'ve activated your request it will show up as a so called marker on the
         map. Other visitors can see your request too and respond to it. When they do you will be introduced to each other.<br><br>
         The Cabhair Team',
-    'keyphrase' => 'Let\'s help eachother out!'
+    'keyphrase' => 'Let\'s help each other out!',
+    'og-description' => 'Need help? Place a pinned request on our interactive map.'
 ];
