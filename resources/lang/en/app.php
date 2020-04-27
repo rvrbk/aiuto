@@ -14,10 +14,10 @@ return [
     'offer-send' => 'Thanks for offering your help! Check your inbox.',
     'i-want-to-help' => 'I want to help',
     'info-text' => '<h1>Welcome to Cabhair.com</h1> 
-        Our goal is to link those in need to those that want to help out.<br><br> 
-        Imagine you\'re quarantined at home but you need some groceries but can\'t get them yourself. You can press the icon centered
-        at the bottom of the page and fill out a small form. After you\'ve activated your request it will show up as a so called marker on the
-        map. Other visitors can see your request too and respond to it. When they do you will be introduced to each other.<br><br>
+        We link people in need to people that wish to help.<br><br> 
+        Imagine you\'re quarantined at home, but are out of groceries. You need some help. In that case, you can press the icon centered
+        at the bottom of the page and fill out a small form. After you\'ve activated your request, it will show up as a so-called marker on the
+        map. Other visitors can see your request and respond to it. When they do, you will be introduced to one another.<br><br>
         The Cabhair Team',
     'keyphrase' => 'Let\'s help each other out!',
     'og-description' => 'Need help? Place a pinned request on our interactive map.'
