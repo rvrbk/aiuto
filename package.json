@@ -19,7 +19,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "axios": "^0.19",
+        "axios": "^0.21",
         "vue": "^2.6.11",
         "vue-here-maps": "^1.0.1",
         "vue-router": "^3.1.6"
